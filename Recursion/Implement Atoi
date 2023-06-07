@@ -1,1 +1,24 @@
-
+class Solution
+{
+    int fun(int i,String str,int num)
+    {
+        if(i>=str.length())
+        return num;
+        if(Character.isDigit(str.charAt(i)))
+        {
+            num=num*10+Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+        else
+        return -1;
+        return fun(i+1,str,num);
+    }
+    int atoi(String str) {
+       if(str.charAt(0)=='-'){
+       int x=fun(0,str.substring(1,str.length()),0);
+       if(x==-1)return -1;
+       else
+       return -x;
+       }
+	   return fun(0,str,0);
+    }
+}
